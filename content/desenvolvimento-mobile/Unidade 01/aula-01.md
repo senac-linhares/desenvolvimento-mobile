@@ -88,7 +88,7 @@ Nas grandes empresas, o problema muda de escala, tornando-se uma questão de **c
     <div class="callout-title">💡 A Solução Perfeita</div>
     O Flutter nasceu para resolver <strong>exatamente</strong> esses problemas. Ele permite que você foque na <strong>lógica do negócio</strong> e no <strong>design</strong>, enquanto o framework cuida da "tradução" para cada plataforma com uma performance incrível.
 </div>
-
+    <img src="https://storage.googleapis.com/cms-storage-bucket/one-experience.10d4b33ecf794e79df9f.png" alt="Diversos dispositivos móveis" />
 ### 📊 Comparação Rápida
 
 | Aspecto | Desenvolvimento Nativo | Flutter Cross-platform |

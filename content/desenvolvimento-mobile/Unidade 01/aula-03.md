@@ -1,8 +1,4 @@
-# 🛠️ Instalação do Flutter: O Guia Sem Medo
-
-<div style="text-align: center; font-size: 3rem; margin: 20px 0;">
-⚙️ 💻 🚀
-</div>
+# 🛠️ Instalação do Flutter
 
 Muitas pessoas travam na hora de configurar o ambiente de desenvolvimento. Mas não se preocupe! Hoje, o Flutter facilitou muito esse processo. Vamos transformar seu computador em uma **fábrica de aplicativos** em poucos passos.
 
@@ -12,11 +8,9 @@ Muitas pessoas travam na hora de configurar o ambiente de desenvolvimento. Mas n
 </div>
 
 <div class="architecture-diagram">
-    <img src="https://storage.googleapis.com/cms-storage-bucket/flutter-on-mobile.2f118a9971e4ca6ad737.png" alt="Instalação do Flutter" />
+    <img src="/content/desenvolvimento-mobile/images/flutter-pointing-the-way.png" alt="Instalação do Flutter" />
     <p style="text-align: center; font-size: 0.85rem; color: #64748b; margin-top: 10px;">Configuração: O primeiro passo para criar algo incrível.</p>
 </div>
-
----
 
 ## 📋 Passo 1: Os Pré-requisitos Básicos
 
@@ -134,104 +128,18 @@ Quer ver a mágica acontecer agora? No seu projeto novo:
 
 ---
 
-## 🚀 Próximo Nível: Configurando o Android
-
-<div style="background: #fff7ed; border: 2px solid #f97316; padding: 30px; border-radius: 12px; margin-bottom: 40px;">
-    <h3 style="color: #9a3412; margin-top: 0;">📱 Quer Rodar no Celular?</h3>
-    <p>Rodar na Web é ótimo para começar, mas você quer ver seu app no <strong>celular</strong>, certo? Para isso, precisamos de um pouco mais de "músculo".</p>
-
-### 1️⃣ Instalando o Android Studio
-
-O Android Studio é o "motor" que permite criar apps para Android. [Baixe o Android Studio aqui](https://developer.android.com/studio).
-
-*   Durante a instalação, escolha a opção **"Standard"**.
-*   Ao terminar, abra o Android Studio e vá em **More Actions > SDK Manager**.
-*   Na aba **SDK Tools**, certifique-se de marcar: **Android SDK Command-line Tools**.
-
-### 2️⃣ Aceitando as Licenças
-
-O Google precisa que você aceite os termos de uso. No terminal do VS Code, digite:
-
-```bash
-flutter doctor --android-licenses
-```
-
-Pressione **y** (de yes) para todas as perguntas que aparecerem.
-
-### 3️⃣ Criando um Emulador (Celular Virtual)
-
-Não tem um cabo USB por perto? Use um celular virtual!
-
-*   No Android Studio, vá em **More Actions > Virtual Device Manager**.
-*   Clique em **Create Device**, escolha um modelo (ex: Pixel 7) e baixe uma versão do Android (ex: 'R' ou 'UpsideDownCake').
-*   Pronto! Agora, no VS Code, ele aparecerá na lista de dispositivos na barra inferior.
-
-<div class="callout warning">
-    <div class="callout-title">📱 Usando seu Próprio Celular</div>
-    Se preferir usar seu celular real: vá em <strong>Configurações > Sobre o Telefone</strong> e clique 7 vezes no "Número da Versão" para ativar o <strong>Modo Desenvolvedor</strong>. Depois, procure por <strong>Depuração USB</strong> e ative-a. Conecte no PC e o Flutter o reconhecerá na hora!
-</div>
-
-</div>
-
----
-
-## 🎯 Desafio do Mentor
-
-<div class="challenge-box">
-    <h3 style="margin-top: 0;">🔥 Teste o Hot Reload</h3>
-    <p>Tente mudar o texto que aparece na tela do seu app novo (procure pela palavra "Flutter" no arquivo <code>main.dart</code>) e salve o arquivo.</p>
-    <p><strong>Observe:</strong> Veja o que acontece no navegador quase instantaneamente! Isso se chama <strong>Hot Reload</strong>.</p>
-</div>
-
-<details class="solution-details">
-    <summary><strong>🔍 Como Fazer</strong></summary>
-    <div class="solution-content">
-        <p><strong>Passo a passo:</strong></p>
-        <ol>
-            <li>Abra o arquivo <code>lib/main.dart</code></li>
-            <li>Procure por <code>'Flutter Demo Home Page'</code></li>
-            <li>Mude para <code>'Meu Primeiro App!'</code></li>
-            <li>Salve o arquivo (<code>Ctrl+S</code>)</li>
-            <li>👀 Veja a mudança aparecer instantaneamente!</li>
-        </ol>
-        <div class="callout tip">
-            <div class="callout-title">⚡ Hot Reload vs Hot Restart</div>
-            <ul>
-                <li><strong>Hot Reload</strong> (Ctrl+S): Atualiza a UI mantendo o estado</li>
-                <li><strong>Hot Restart</strong> (Ctrl+Shift+F5): Reinicia o app do zero</li>
-            </ul>
-        </div>
-    </div>
-</details>
-
----
-
-## 📚 Recursos Adicionais
+## ⏭️ Próximos Passos
 
 <div class="callout info">
-    <div class="callout-title">🔗 Links Úteis</div>
-    <ul>
-        <li>📖 <a href="https://docs.flutter.dev/get-started/install" target="_blank">Documentação Oficial de Instalação</a></li>
-        <li>🎥 <a href="https://www.youtube.com/watch?v=CD1Y2DmL5JM" target="_blank">Vídeo: Instalando Flutter (Oficial)</a></li>
-        <li>🛠️ <a href="https://docs.flutter.dev/get-started/test-drive" target="_blank">Guia: Primeiro Test Drive</a></li>
-        <li>💬 <a href="https://discord.gg/flutter" target="_blank">Comunidade Flutter Brasil no Discord</a></li>
-    </ul>
-</div>
-
----
-
-## ⏭️ O que vem por aí?
-
-<div class="callout info">
-    <div class="callout-title">🎓 Próxima Unidade</div>
-    Agora que seu ambiente está pronto, na <strong>Unidade 02</strong> vamos entender cada linha de código desse app que você acabou de rodar.
+    <div class="callout-title">🎓 O que vem agora?</div>
+    Agora que o SDK do Flutter está no seu computador, precisamos configurar os emuladores e o Android Studio para que você possa testar seus apps em celulares reais.
     
-    **Prepare-se para:** Desvendar a estrutura de um app Flutter e criar seu primeiro "Hello World" personalizado! 🎉
+    Na **Próxima Aula**, vamos preparar o terreno para o mobile! 🎉
 </div>
 
 ---
 
 <div style="text-align: center; padding: 40px 0; background: linear-gradient(135deg, #0284c7 0%, #0ea5e9 100%); border-radius: 12px; color: white; margin-top: 40px;">
-    <h3 style="color: white; margin: 0;">🎉 Parabéns! Você é Oficialmente um Desenvolvedor Flutter!</h3>
-    <p style="margin: 10px 0 0 0;">Seu ambiente está configurado. Agora é hora de criar!</p>
+    <h3 style="color: white; margin: 0;">🎉 Flutter SDK Instalado!</h3>
+    <p style="margin: 10px 0 0 0;">O coração do seu desenvolvimento já está batendo. Vamos configurar as ferramentas agora!</p>
 </div>

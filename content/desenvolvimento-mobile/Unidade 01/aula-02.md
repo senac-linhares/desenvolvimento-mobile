@@ -12,11 +12,8 @@ Depois de entendermos os desafios do mundo cross-platform, chegou a hora de conh
 </div>
 
 <div class="architecture-diagram">
-    <img src="https://storage.googleapis.com/cms-storage-bucket/flutter-on-mobile.2f118a9971e4ca6ad737.png" alt="Flutter Development" />
-    <p style="text-align: center; font-size: 0.85rem; color: #64748b; margin-top: 10px;">Desenvolvimento Ágil: Criando interfaces fluidas com o Google Flutter.</p>
+    <img src="/content/desenvolvimento-mobile/images/o-que-flutter.jpg" alt="Flutter Development" />
 </div>
-
----
 
 ## 🔍 Definindo o Flutter
 
@@ -82,27 +79,28 @@ A grande vantagem do Flutter é a **produtividade**. Ele ataca diretamente os pr
 *   **Look & Feel Consistente:** Seus widgets terão a mesma aparência em qualquer dispositivo, ou você pode adaptá-los para parecer nativos com um clique.
 *   **Custom Design:** O Flutter não tem limites. Se você consegue imaginar um design, você consegue construí-lo no Flutter sem gambiarras.
 
-### 📊 Arquitetura Simplificada:
+### 📊 Como o Flutter Desenha na Tela? (Architecture)
+
+Diferente de quase todos os outros frameworks, o Flutter não pede para o Android ou iOS desenharem os botões. Ele mesmo faz isso!
+
+O Flutter usa um **motor gráfico próprio** (como os motores de jogos tipo Unity ou Unreal).
+- **Skia / Impeller**: São os motores que o Flutter usa para desenhar cada pixel na tela. Isso garante que o app rode a 60 ou 120 FPS sem depender da lentidão do sistema operacional.
 
 ```mermaid
 graph TD
-    A["📱 Sua Aplicação<br/>Logística, Social, E-commerce"] --> B["⚡ Flutter Engine"]
-    B --> C["🤖 Android"]
-    B --> D["🍎 iOS"]
-    B --> E["🌐 Web"]
-    B --> F["💻 Desktop"]
+    A["📱 Sua Aplicação<br/>Código Dart"] --> B["⚡ Framework Flutter<br/>Widgets, Animações, Gestos"]
+    B --> C["⚙️ Engine (C++)<br/>Skia/Impeller, Dart VM"]
+    C --> D["🤖 Android / 🍎 iOS<br/>Hardware, Sensores"]
     
     style A fill:#e0f2fe,stroke:#0ea5e9,stroke-width:3px
     style B fill:#fef3c7,stroke:#f59e0b,stroke-width:2px
-    style C fill:#dcfce7
-    style D fill:#fee2e2
-    style E fill:#e0e7ff
-    style F fill:#f3e8ff
+    style C fill:#dcfce7,stroke:#10b981
+    style D fill:#f3f4f6
 ```
 
 <div class="callout tip">
     <div class="callout-title">⚡ Performance Nativa</div>
-    O Flutter compila seu código Dart diretamente para <strong>código de máquina</strong>, garantindo que as animações rodem a 60 ou 120 frames por segundo, sem travamentos!
+    O Flutter compila seu código Dart diretamente para <strong>código de máquina</strong>. Quando você roda o app, ele já está na linguagem que o processador entende!
 </div>
 
 ---

@@ -1,11 +1,11 @@
 [
     {
         "id": "unit-1",
-        "title": "Unidade 01: Introdução ao Flutter",
+        "title": "Unidade 01: O Universo Mobile e Flutter",
         "lessons": [
             {
                 "id": "u1-l1",
-                "title": "Desenvolvimento Cross-platform",
+                "title": "Desenvolvimento Mobile Moderno",
                 "path": "content/desenvolvimento-mobile/Unidade 01/aula-01.md"
             },
             {
@@ -20,86 +20,75 @@
             },
             {
                 "id": "u1-l4",
-                "title": "Coleções em Dart",
+                "title": "Configuração do Ambiente",
                 "path": "content/desenvolvimento-mobile/Unidade 01/aula-04.md"
             },
             {
                 "id": "u1-l5",
-                "title": "Orientação a Objetos em Dart",
+                "title": "Flutter Doctor & Ferramentas",
                 "path": "content/desenvolvimento-mobile/Unidade 01/aula-05.md"
             }
         ]
     },
     {
         "id": "unit-2",
-        "title": "Unidade 02: Fundamentos do Flutter",
+        "title": "Unidade 02: Ambiente e Lógica com Dart",
         "lessons": [
             {
                 "id": "u2-l1",
-                "title": "Hello Flutter App",
-                "path": "content/desenvolvimento-mobile/Unidade 02/aula-01.md"
+                "title": "Estrutura do Projeto Flutter",
+                "path": "content/desenvolvimento-mobile/Unidade 02/aula-01-ambiente.md"
             },
             {
                 "id": "u2-l2",
-                "title": "Anatomia do App Flutter",
-                "path": "content/desenvolvimento-mobile/Unidade 02/aula-02.md"
+                "title": "Dart: Variáveis e Tipos",
+                "path": "content/desenvolvimento-mobile/Unidade 02/aula-02-dart.md"
             },
             {
                 "id": "u2-l3",
-                "title": "Criando um Projeto Flutter",
-                "path": "content/desenvolvimento-mobile/Unidade 02/aula-03.md"
+                "title": "Dart: Fluxo e Controle",
+                "path": "content/desenvolvimento-mobile/Unidade 02/aula-03-dart.md"
             },
             {
                 "id": "u2-l4",
-                "title": "Estrutura do Código",
-                "path": "content/desenvolvimento-mobile/Unidade 02/aula-04.md"
+                "title": "Dart: Coleções",
+                "path": "content/desenvolvimento-mobile/Unidade 02/aula-04-dart.md"
             },
             {
                 "id": "u2-l5",
-                "title": "O Widget SafeArea",
-                "path": "content/desenvolvimento-mobile/Unidade 02/aula-05.md"
-            },
-            {
-                "id": "u2-l6",
-                "title": "O Widget Scaffold",
-                "path": "content/desenvolvimento-mobile/Unidade 02/aula-06.md"
+                "title": "Dart: Orientação a Objetos",
+                "path": "content/desenvolvimento-mobile/Unidade 02/aula-05-dart.md"
             }
         ]
     },
     {
         "id": "unit-3",
-        "title": "Unidade 03: Layouts e Widgets",
+        "title": "Unidade 03: Mergulhando no Flutter",
         "lessons": [
             {
                 "id": "u3-l1",
-                "title": "Stateless vs Stateful",
-                "path": "content/desenvolvimento-mobile/Unidade 03/aula-01.md"
+                "title": "Primeiro App e Hot Reload",
+                "path": "content/desenvolvimento-mobile/Unidade 03/aula-01-flutter.md"
             },
             {
                 "id": "u3-l2",
-                "title": "Column, Row e Stack",
-                "path": "content/desenvolvimento-mobile/Unidade 03/aula-02.md"
+                "title": "Stateless vs Stateful",
+                "path": "content/desenvolvimento-mobile/Unidade 03/aula-02-flutter.md"
             },
             {
                 "id": "u3-l3",
-                "title": "Container e Padding",
-                "path": "content/desenvolvimento-mobile/Unidade 03/aula-03.md"
+                "title": "SafeArea e Scaffold",
+                "path": "content/desenvolvimento-mobile/Unidade 03/aula-03-flutter.md"
             },
             {
                 "id": "u3-l4",
-                "title": "ListView e GridView",
-                "path": "content/desenvolvimento-mobile/Unidade 03/aula-04.md"
-            }
-        ]
-    },
-    {
-        "id": "unit-4",
-        "title": "Unidade 04: Interatividade e Navegação",
-        "lessons": [
+                "title": "Layouts: Column e Row",
+                "path": "content/desenvolvimento-mobile/Unidade 03/aula-04-flutter.md"
+            },
             {
-                "id": "u4-l1",
-                "title": "Gestos e Botões",
-                "path": "content/desenvolvimento-mobile/Unidade 04/aula-01.md"
+                "id": "u3-l5",
+                "title": "Design: Container e Padding",
+                "path": "content/desenvolvimento-mobile/Unidade 03/aula-05-flutter.md"
             }
         ]
     }

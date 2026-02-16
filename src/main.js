@@ -17,29 +17,48 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     function renderMenu(manifest) {
         menuEl.innerHTML = '';
-        manifest.forEach(unit => {
-            const unitDiv = document.createElement('div');
-            unitDiv.className = 'unit-item';
 
-            const title = document.createElement('h3');
-            title.className = 'unit-title';
-            title.textContent = unit.title;
-            unitDiv.appendChild(title);
+        const folderIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-folder"><path d="M4 20h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"/></svg>`;
+        const fileIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-file"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/></svg>`;
+        const chevronIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-chevron"><path d="m6 9 6 6 6-6"/></svg>`;
+
+        manifest.forEach(unit => {
+            const unitContainer = document.createElement('div');
+            unitContainer.className = 'unit-container open';
+
+            const unitHeader = document.createElement('div');
+            unitHeader.className = 'unit-header';
+            unitHeader.innerHTML = `
+                ${chevronIcon}
+                ${folderIcon}
+                <span class="unit-title-text">${unit.title}</span>
+            `;
+
+            unitHeader.onclick = () => {
+                unitContainer.classList.toggle('open');
+            };
+
+            const lessonList = document.createElement('div');
+            lessonList.className = 'lesson-list';
 
             unit.lessons.forEach(lesson => {
                 const link = document.createElement('a');
                 link.className = 'lesson-link';
-                link.textContent = lesson.title;
+                link.innerHTML = `${fileIcon} <span>${lesson.title}</span>`;
                 link.dataset.path = lesson.path;
-                link.dataset.unit = unit.title;
+                link.dataset.id = lesson.id;
+
                 link.onclick = (e) => {
                     e.preventDefault();
+                    e.stopPropagation();
                     loadLesson(lesson);
                 };
-                unitDiv.appendChild(link);
+                lessonList.appendChild(link);
             });
 
-            menuEl.appendChild(unitDiv);
+            unitContainer.appendChild(unitHeader);
+            unitContainer.appendChild(lessonList);
+            menuEl.appendChild(unitContainer);
         });
     }
 
@@ -77,10 +96,16 @@ document.addEventListener('DOMContentLoaded', async () => {
     async function loadLesson(lesson) {
         currentLesson = lesson;
 
+        // Find Unit for breadcrumbs
+        const unit = currentManifest.find(u => u.lessons.some(l => l.id === lesson.id));
+
         // UI Updates
         document.querySelectorAll('.lesson-link').forEach(l => l.classList.remove('active'));
         document.querySelector(`[data-path="${lesson.path}"]`)?.classList.add('active');
-        unitNameEl.textContent = lesson.title;
+
+        if (unitNameEl) {
+            unitNameEl.innerHTML = `<span>${unit ? unit.title : ''}</span> / <span class="active-breadcrumb">${lesson.title}</span>`;
+        }
 
         // Loading State
         contentEl.innerHTML = '<div class="loader">Carregando conteúdo...</div>';
