@@ -23,6 +23,8 @@ Flutter é a tecnologia do Google que permite criar aplicativos **nativos** para
 
 **Tudo isso com um único código!** 🎉
 
+![Flutter - Construa para todas as plataformas como uma única equipe](https://docs.flutter.dev/assets/images/docs/ui/adaptive-responsive/platforms.png)
+
 Empresas como **Nubank**, **iFood**, **BMW**, **Alibaba** e muitas outras usam Flutter para criar seus apps. Legal, né?
 
 ---
@@ -51,20 +53,6 @@ Durante o curso, você vai dominar:
 
 ---
 
-## 📚 Material do Curso
-
-Acesse nossa **[Wiki do Curso](../../wiki)** onde você encontrará:
-
-- 📖 Apostilas completas
-- 💻 Códigos de exemplo
-- 🎯 Exercícios práticos
-- 🔗 Links úteis
-- 🎬 Tutoriais em vídeo
-
-**[👉 Clique aqui para acessar a Wiki](../../wiki)**
-
----
-
 ## 🛠️ Primeiros Passos
 
 ### Instalação do Flutter
@@ -85,27 +73,6 @@ Não se preocupe! Vamos te guiar em cada passo! 😊
 🔍 **Não tenha medo de errar** - Erros são parte do aprendizado  
 🎮 **Divirta-se** - Criar apps é incrível!  
 📱 **Sonhe grande** - Seu app pode mudar o mundo!  
-
----
-
-## 🎓 Sobre o Senac Linhares
-
-O **Senac** é referência em educação profissional no Brasil, e você está em boas mãos! Aqui você terá acesso a:
-
-- 👨‍🏫 Professores experientes
-- 💻 Laboratórios modernos
-- 📚 Materiais de qualidade
-- 🌐 Conexão com o mercado de trabalho
-
----
-
-## 📞 Contato e Suporte
-
-Dúvidas? Problemas? Estamos aqui para ajudar!
-
-- 💬 Converse com seus professores
-- 👥 Participe das discussões em sala
-- 🔗 Acesse a [Wiki](../../wiki) para materiais extras
 
 ---
 
