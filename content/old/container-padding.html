@@ -1,0 +1,97 @@
+<h1>Container e Padding</h1>
+
+<p>Se a Column e a Row são os esqueletos do seu app, o <strong>Container</strong> é a alma visual. Ele é o widget de
+    decoração mais versátil do Flutter, permitindo adicionar cores, bordas, sombras e controlar o espaçamento.</p>
+
+<div class="hero-section"
+    style="background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%); color: white; padding: 40px; border-radius: 12px; margin-bottom: 40px;">
+    <h2 style="color: white; border: none; margin-top: 0;">O Modelo de Caixa</h2>
+    <p>Entender a diferença entre Margem e Preenchimento (Padding) é fundamental para criar layouts harmônicos.</p>
+</div>
+
+<h2>1. Padding vs Margin</h2>
+<p>O conceito é o mesmo do CSS, mas no Flutter usamos a classe <code>EdgeInsets</code> para definir esses valores.</p>
+
+<div class="box-model-diagram"
+    style="margin: 30px 0; padding: 30px; background: #f8fafc; border: 1px solid var(--border); border-radius: 12px; display: flex; justify-content: center;">
+    <div style="border: 2px dashed #94a3b8; padding: 20px; background: #f1f5f9; position: relative;">
+        <small style="position: absolute; top: 2px; left: 5px; color: #64748b; font-size: 0.65rem;">MARGIN</small>
+        <div style="border: 2px solid #6366f1; padding: 20px; background: #e0e7ff; position: relative;">
+            <small style="position: absolute; top: 2px; left: 5px; color: #4338ca; font-size: 0.65rem;">PADDING</small>
+            <div
+                style="background: white; border: 1px solid #6366f1; padding: 10px; font-weight: bold; color: #4338ca; text-align: center;">
+                CONTEÚDO
+            </div>
+        </div>
+    </div>
+</div>
+
+<ul>
+    <li><strong>Padding (Preenchimento):</strong> Espaço <strong>interno</strong> entre a borda do container e o seu
+        filho.</li>
+    <li><strong>Margin (Margem):</strong> Espaço <strong>externo</strong> entre o container e os outros widgets ao
+        redor.</li>
+</ul>
+
+<pre><code class="language-dart">Container(
+  margin: const EdgeInsets.all(20.0), // 20 pixels fora
+  padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8), // Respirar dentro
+  child: const Text("Olá!"),
+)</code></pre>
+
+<h2>2. BoxDecoration: Pintando o Container</h2>
+<p>Para dar um visual premium, usamos a propriedade <code>decoration</code>. Você pode adicionar bordas arredondadas,
+    sombras (BoxShadow) e degradês.</p>
+
+<div style="background: #f8fafc; border: 1px solid var(--border); border-radius: 8px; padding: 20px; margin: 30px 0;">
+    <pre><code class="language-dart">Container(
+  decoration: BoxDecoration(
+    color: Colors.white,
+    borderRadius: BorderRadius.circular(15),
+    boxShadow: [
+      BoxShadow(
+        color: Colors.black.withOpacity(0.1),
+        blurRadius: 10,
+        offset: Offset(0, 5),
+      ),
+    ],
+    border: Border.all(color: Colors.blueAccent, width: 2),
+  ),
+  child: ...
+)</code></pre>
+</div>
+
+<h2>3. SizedBox e ConstrainedBox</h2>
+<p>Às vezes você não precisa de cor ou sombra, apenas de um espaço fixo. O <strong>SizedBox</strong> é o widget mais
+    leve para isso.</p>
+<ul>
+    <li><strong>Espaçador:</strong> <code>SizedBox(height: 20)</code> entre dois botões.</li>
+    <li><strong>Tamanho Fixo:</strong> Envolver um botão em um <code>SizedBox(width: double.infinity)</code> para ele
+        ocupar toda a largura.</li>
+</ul>
+
+<div class="callout tip">
+    <div class="callout-title">🚀 Dica de Código Limpo</div>
+    Se você precisa apenas de espaçamento, prefira o widget <code>Padding</code> ou <code>SizedBox</code> em vez de um
+    <code>Container</code> vazio. Isso deixa seu código mais semântico e leve.
+</div>
+
+<hr style="margin: 40px 0;">
+
+<h2>🎯 Desafio Visual</h2>
+<p>Imagine que você quer criar um cartão de "Destaque" que tenha um fundo degradê do Azul para o Roxo e bordas bem
+    arredondadas (25px). Como ficaria a <code>BoxDecoration</code>?</p>
+
+<details style="margin-top: 20px; cursor: pointer; background: #f3f4f6; padding: 15px; border-radius: 8px;">
+    <summary><strong>Ver Solução</strong></summary>
+    <div style="margin-top: 10px;">
+        <pre><code class="language-dart">BoxDecoration(
+  borderRadius: BorderRadius.circular(25),
+  gradient: LinearGradient(
+    begin: Alignment.topLeft,
+    end: Alignment.bottomRight,
+    colors: [Colors.blue, Colors.purple],
+  ),
+)</code></pre>
+    </div>
+</details>

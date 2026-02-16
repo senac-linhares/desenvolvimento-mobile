@@ -1,0 +1,116 @@
+<h1>Estrutura do Código Flutter</h1>
+
+<p>Agora que já criamos o projeto, vamos abrir o arquivo <code>lib/main.dart</code> e entender o que faz o coração do
+    Flutter bater. Se na aula passada vimos as pastas, hoje vamos ver as <strong>Classes</strong>.</p>
+
+<div class="hero-section"
+    style="background: linear-gradient(135deg, #8b5cf6 0%, #6d28d9 100%); color: white; padding: 40px; border-radius: 12px; margin-bottom: 40px;">
+    <h2 style="color: white; border: none; margin-top: 0;">Mergulhando no Código</h2>
+    <p>Vamos dissecar o "Hello World" do Flutter e entender conceitos vitais como <code>StatelessWidget</code>, o método
+        <code>build()</code> e a árvore de widgets na prática.</p>
+</div>
+
+<h2>1. O Ponto de Partida: <code>main()</code></h2>
+<p>Todo aplicativo Dart (e consequentemente Flutter) começa em uma função chamada <span
+        class="flutter-keyword">main()</span>. É aqui que o compilador busca por onde começar.</p>
+
+<pre><code class="language-dart">import 'package:flutter/material.dart';
+
+void main() {
+  runApp(HelloFlutterApp());
+}</code></pre>
+
+<div class="callout info">
+    <div class="callout-title">🧠 O que é runApp?</div>
+    A função <span class="flutter-keyword">runApp()</span> é o comando que diz: "Flutter, pegue este widget (o
+    <code>HelloFlutterApp</code>) e o desenhe na tela inteira do dispositivo".
+</div>
+
+<hr style="margin: 40px 0;">
+
+<h2>2. Criando seu Widget: <code>StatelessWidget</code></h2>
+<p>No Flutter, quase tudo é um Widget. E para criar o nosso próprio widget (nosso aplicativo), nós criamos uma
+    <strong>Classe</strong> que estende de <span class="flutter-keyword">StatelessWidget</span>.</p>
+
+<pre><code class="language-dart">class HelloFlutterApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Center(
+        child: Text("Hello Flutter!"),
+      ),
+    );
+  }
+}</code></pre>
+
+<h3>Três Pilares desta Classe:</h3>
+
+<div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; margin-top: 20px;">
+    <div style="background: #f8fafc; padding: 15px; border-radius: 8px; border: 1px solid #e2e8f0;">
+        <strong style="color: #6d28d9;">1. Herança</strong>
+        <p style="font-size: 0.9rem; color: #64748b;"><code>extends StatelessWidget</code></p>
+        <p style="font-size: 0.85rem;">Significa que nossa classe herda todos os superpoderes de um widget estático do
+            Flutter.</p>
+    </div>
+
+    <div style="background: #f8fafc; padding: 15px; border-radius: 8px; border: 1px solid #e2e8f0;">
+        <strong style="color: #059669;">2. O Método Build</strong>
+        <p style="font-size: 0.9rem; color: #64748b;"><code>Widget build(...)</code></p>
+        <p style="font-size: 0.85rem;">É o "pintor". O Flutter chama esse método quando precisa saber o que desenhar na
+            tela.</p>
+    </div>
+
+    <div style="background: #f8fafc; padding: 15px; border-radius: 8px; border: 1px solid #e2e8f0;">
+        <strong style="color: #2563eb;">3. Composição</strong>
+        <p style="font-size: 0.9rem; color: #64748b;"><code>return MaterialApp(...)</code></p>
+        <p style="font-size: 0.85rem;">Nós não desenhamos pixels; nós retornamos outros widgets (como Lego) que compõem
+            nossa tela.</p>
+    </div>
+</div>
+
+<hr style="margin: 40px 0;">
+
+<h2>3. Material Design</h2>
+<p>Você notou o <span class="flutter-keyword">MaterialApp</span>? Ele é o widget que aplica o estilo visual do Google
+    (Material Design) ao seu app. Ele fornece navegação, temas e suporte a idiomas.</p>
+
+<ul>
+    <li><strong>Visual Tátil:</strong> Elementos que parecem ter camadas e sombras.</li>
+    <li><strong>Feedback:</strong> Botões que fazem "ripple" (ondulação) ao clicar.</li>
+    <li><strong>Clareza:</strong> Fontes legíveis e cores hierárquicas.</li>
+</ul>
+
+<div class="callout tip">
+    <div class="callout-title">💡 Dica do Mentor</div>
+    Para ter acesso a todos esses widgets legais (<span class="flutter-keyword">StatelessWidget</span>, <span
+        class="flutter-keyword">MaterialApp</span>, <span class="flutter-keyword">Text</span>), nós precisamos importar
+    o pacote material no topo do arquivo: <code>import 'package:flutter/material.dart';</code>
+</div>
+
+<hr style="margin: 40px 0;">
+
+<h2>4. Entendendo a Árvore (Código)</h2>
+<p>Olhe novamente para o código dentro do <code>build</code>. Veja como os widgets se aninham:</p>
+
+<div
+    style="font-family: 'JetBrains Mono', monospace; background: #1e293b; color: #e2e8f0; padding: 20px; border-radius: 8px;">
+    <span style="color: #f472b6;">MaterialApp</span> (<br>
+    &nbsp;&nbsp;home: <span style="color: #60a5fa;">Center</span> (<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;child: <span style="color: #4ade80;">Text</span>("Hello Flutter!")<br>
+    &nbsp;&nbsp;)<br>
+    )
+</div>
+
+<p style="margin-top: 15px;">É uma hierarquia de Pai e Filho:</p>
+<ol>
+    <li>O <strong>MaterialApp</strong> é o avô. Ele segura tudo.</li>
+    <li>Ele tem um filho (home) que é o <strong>Center</strong>.</li>
+    <li>O Center tem um filho (child) que é o <strong>Text</strong>.</li>
+    <li>O Text é quem finalmente mostra a mensagem na tela.</li>
+</ol>
+
+<div class="callout warning">
+    <div class="callout-title">⚠️ Atenção aos Parênteses</div>
+    Repare que cada Widget abre parênteses <code>(</code> e fecha parênteses <code>)</code>. Uma das chaves para não se
+    perder no Flutter é manter a indentação organizada (o VS Code faz isso pra você com <code>Shift + Alt + F</code>).
+</div>

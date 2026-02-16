@@ -1,0 +1,101 @@
+<h1>Primeiro App (Hello World)</h1>
+
+<p>Chegou o momento mais esperado! Vamos analisar linha por linha o código mínimo necessário para fazer um aplicativo
+  Flutter funcionar.</p>
+
+<div class="code-header"
+  style="background: #334155; color: #f8fafc; padding: 10px 20px; border-top-left-radius: 8px; border-top-right-radius: 8px; font-size: 0.8rem; display: flex; justify-content: space-between; align-items: center;">
+  <span>main.dart</span>
+  <span style="opacity: 0.7;">Dart</span>
+</div>
+<pre style="margin-top: 0; border-top-left-radius: 0; border-top-right-radius: 0;"><code class="language-dart">import 'package:flutter/material.dart';
+
+void main() {
+  runApp(
+    MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          title: const Text('Meu Primeiro App'),
+          backgroundColor: Colors.blue,
+        ),
+        body: const Center(
+          child: Text('Olá, Mundo!'),
+        ),
+      ),
+    ),
+  );
+}</code></pre>
+
+<h2>1. Desvendando o Código</h2>
+<p>Cada parte desse código tem uma função vital:</p>
+
+<div style="display: grid; grid-template-columns: 1fr 2fr; gap: 15px; margin: 20px 0;">
+  <div style="font-weight: bold; color: var(--primary);">main()</div>
+  <div>O ponto de entrada do seu aplicativo. Tudo começa aqui.</div>
+
+  <div style="font-weight: bold; color: var(--primary);">runApp()</div>
+  <div>A função que "infla" o seu widget e o coloca na tela do celular.</div>
+
+  <div style="font-weight: bold; color: var(--primary);">MaterialApp</div>
+  <div>O "envelope" do seu app que segue o Design System do Google (Material Design).</div>
+
+  <div style="font-weight: bold; color: var(--primary);">Scaffold</div>
+  <div>A "estrutura" básica da página, fornecendo slots para AppBar, Body e Botões.</div>
+</div>
+
+<div class="callout tip">
+  <div class="callout-title">🌳 As Três Árvores</div>
+  O Flutter não tem apenas uma árvore. Ele gerencia três:
+  <ul>
+    <li><strong>Widget Tree:</strong> Suas configurações de UI (Blueprints).</li>
+    <li><strong>Element Tree:</strong> A ponte que conecta o Widget ao RenderObject.</li>
+    <li><strong>Render Tree:</strong> Onde o desenho real e o cálculo de layout acontecem.</li>
+  </ul>
+</div>
+
+<h2>2. Anatomia Visual e Performance</h2>
+<p>Veja como o código se traduz para a tela:</p>
+
+<h3>Por que usar o `const`?</h3>
+<p>Você notará o aviso azul do "Lint" se não usar <code>const</code> em widgets que não mudam. No Flutter, o
+  <code>const</code> permite que o objeto seja criado em tempo de compilação e reutilizado na memória. Isso significa
+  que, se o app precisar ser redesenhado, o Flutter pula os widgets <code>const</code>, ganhando muita performance.</p>
+
+<div style="background: #f1f5f9; padding: 20px; border-radius: 8px; border-left: 4px solid var(--primary);">
+  <strong>Regra de Ouro:</strong> Se o valor é conhecido antes do app rodar e nunca vai mudar, use <code>const</code>.
+</div>
+
+<h2>3. Stateless vs Stateful (Introdução)</h2>
+<p>Neste primeiro exemplo, usamos widgets simples. Mas existem dois tipos fundamentais:</p>
+<ul>
+  <li><strong>StatelessWidget:</strong> Não muda. É como um documento impresso.</li>
+  <li><strong>StatefulWidget:</strong> Pode mudar durante a execução (ex: um contador, um formulário). Ele tem um objeto
+    de <strong>Estado</strong> que redesenha o widget quando os dados mudam.</li>
+</ul>
+
+<hr style="margin: 40px 0;">
+
+<h2>🎯 Desafio de Código</h2>
+<p>Tente modificar mentalmente o código acima para resolver o seguinte problema:</p>
+
+<div style="background: #fff; border: 2px dashed var(--primary); padding: 20px; border-radius: 8px; margin-top: 20px;">
+  <p><strong>Como você alteraria o texto central para exibir o seu próprio nome e mudaria a cor da AppBar para
+      verde?</strong></p>
+</div>
+
+<details style="margin-top: 20px; cursor: pointer; background: #f3f4f6; padding: 15px; border-radius: 8px;">
+  <summary><strong>Ver Solução</strong></summary>
+  <div style="margin-top: 10px;">
+    <pre><code class="language-dart">// No AppBar:
+backgroundColor: Colors.green,
+
+// No Text interno do Center:
+child: Text('Olá, [Seu Nome]!'),</code></pre>
+  </div>
+</details>
+
+<div class="callout warning">
+  <div class="callout-title">⚠️ Importante</div>
+  Não se preocupe com o termo <code>const</code> por enquanto. Ele serve apenas para dizer ao Flutter que aquele widget
+  nunca vai mudar, o que economiza memória.
+</div>

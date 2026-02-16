@@ -1,0 +1,104 @@
+<h1>Orientação a Objetos em Dart</h1>
+
+<p>O Flutter é inteiramente baseado em <strong>Orientação a Objetos (POO)</strong>. Cada Widget que você usa é uma
+    instância de uma classe. Dominar POO é a chave para criar arquiteturas escaláveis e reutilizáveis.</p>
+
+<div class="hero-section"
+    style="background: linear-gradient(135deg, #7c3aed 0%, #4f46e5 100%); color: white; padding: 40px; border-radius: 12px; margin-bottom: 40px;">
+    <h2 style="color: white; border: none; margin-top: 0;">Modelando o Mundo Real</h2>
+    <p>Classes são como "plantas" ou "moldes", e objetos são as "construções" reais feitas a partir desses moldes.</p>
+</div>
+
+<h2>1. Classes e Construtores (O Jeito Dart)</h2>
+<p>O Dart possui "açúcares sintáticos" que tornam a criação de classes muito mais limpa do que em Java ou C#.</p>
+
+<pre><code class="language-dart">class Usuario {
+  String nome;
+  int? idade;
+
+  // Construtor simplificado (Sugar Syntax)
+  Usuario(this.nome, {this.idade});
+
+  // Construtor Nomeado
+  Usuario.convidado() : nome = "Convidado", idade = 0;
+
+  void saudar() => print("Olá, eu sou $nome!");
+}
+
+void main() {
+  var user1 = Usuario("Welton", idade: 30);
+  var user2 = Usuario.convidado();
+  
+  user1.saudar();
+  user2.saudar();
+}</code></pre>
+
+<div class="callout tip">
+    <div class="callout-title">💡 Construtores Nomeados</div>
+    Eles são muito usados no Flutter. Por exemplo, <code>EdgeInsets.all(10)</code> e
+    <code>EdgeInsets.only(top: 10)</code> são construtores nomeados da classe EdgeInsets.
+</div>
+
+<h2>2. Herança e Classes Abstratas</h2>
+<p>Deseja criar um comportamento padrão que outras classes herdarão? Use <code>abstract class</code> e
+    <code>extends</code>.</p>
+
+<pre><code class="language-dart">abstract class Animal {
+  void emitirSom(); // Método sem corpo (precisa ser implementado)
+}
+
+class Cachorro extends Animal {
+  @override
+  void emitirSom() => print("Au Au!");
+}</code></pre>
+
+<h2>3. Mixins: O Superpoder do Dart</h2>
+<p>Mixins permitem adicionar funcionalidades a uma classe sem usar herança direta. É uma forma de reutilizar código em
+    múltiplas hierarquias de classe.</p>
+
+<div style="background: #f8fafc; border-left: 5px solid #7c3aed; padding: 20px; border-radius: 4px; margin: 25px 0;">
+    <pre><code class="language-dart">mixin Caminhante {
+  void andar() => print("Caminhando...");
+}
+
+class Humano extends Animal with Caminhante {
+  @override
+  void emitirSom() => print("Olá!");
+}</code></pre>
+    <p>No Flutter, usamos mixins o tempo todo, como em <code>with SingleTickerProviderStateMixin</code> para animações.
+    </p>
+</div>
+
+<hr style="margin: 40px 0;">
+
+<h2>🎯 Desafio de Arquitetura</h2>
+<p>Imagine que você está criando um sistema de pagamentos. Você tem uma classe abstrata <code>Pagamento</code> com o
+    método <code>processar()</code>. Como você criaria uma classe <code>CartaoCredito</code> que herda de Pagamento e
+    usa um mixin chamado <code>Seguranca</code>?</p>
+
+<details style="margin-top: 20px; cursor: pointer; background: #f3f4f6; padding: 15px; border-radius: 8px;">
+    <summary><strong>Ver Solução</strong></summary>
+    <div style="margin-top: 10px;">
+        <pre><code class="language-dart">abstract class Pagamento {
+  void processar();
+}
+
+mixin Seguranca {
+  void validarToken() => print("Token validado!");
+}
+
+class CartaoCredito extends Pagamento with Seguranca {
+  @override
+  void processar() {
+    validarToken();
+    print("Processando via Cartão...");
+  }
+}</code></pre>
+    </div>
+</details>
+
+<div class="callout info">
+    <div class="callout-title">🏗️ Getters e Setters</div>
+    O Dart gera getters e setters implícitos para todas as variáveis, mas você pode customizá-los usando as
+    palavras-chave <code>get</code> e <code>set</code> para adicionar lógica de validação.
+</div>

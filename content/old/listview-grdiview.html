@@ -1,0 +1,100 @@
+<h1>ListView e GridView</h1>
+
+<p>A maioria dos aplicativos modernos é, na essência, uma lista de alguma coisa: mensagens, produtos, fotos ou notícias.
+    No Flutter, gerenciar grandes quantidades de dados de forma performática é feito através de <code>ListView</code> e
+    <code>GridView</code>.</p>
+
+<div class="hero-section"
+    style="background: linear-gradient(135deg, #10b981 0%, #059669 100%); color: white; padding: 40px; border-radius: 12px; margin-bottom: 40px;">
+    <h2 style="color: white; border: none; margin-top: 0;">Scroll Infinito e Performance</h2>
+    <p>Aprenda a exibir milhares de itens sem travar o celular do seu usuário, renderizando apenas o que é visível.</p>
+</div>
+
+<h2>1. ListView: Listas Verticais e Horizontais</h2>
+<p>O <code>ListView</code> é o widget mais comum para criar rolagem. Ele pode ser usado de duas formas:</p>
+
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 30px 0;">
+    <div style="background: #f1f5f9; padding: 15px; border-radius: 8px;">
+        <strong>Padrão (Children)</strong>
+        <p style="font-size: 0.8rem; margin-top: 10px;">Bom para poucos itens (ex: um formulário ou menu de
+            configurações).</p>
+        <pre><code class="language-dart">ListView(
+  children: [
+    Text("Item 1"),
+    Text("Item 2"),
+  ],
+)</code></pre>
+    </div>
+    <div style="background: #f1f5f9; padding: 15px; border-radius: 8px;">
+        <strong>Builder (Sob demanda)</strong>
+        <p style="font-size: 0.8rem; margin-top: 10px;">Essencial para listas longas ou infinitas. Ele "constrói" os
+            itens conforme você rola.</p>
+        <pre><code class="language-dart">ListView.builder(
+  itemCount: 1000,
+  itemBuilder: (context, index) {
+    return ListTile(title: Text("Item $index"));
+  },
+)</code></pre>
+    </div>
+</div>
+
+<h2>2. GridView: Layouts em Grade</h2>
+<p>Quer exibir fotos em duas colunas ou um menu de ícones? O <code>GridView</code> resolve isso com facilidade.</p>
+
+<div class="grid-diagram"
+    style="margin: 30px 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; background: #ecfdf5; padding: 20px; border-radius: 8px; border: 1px solid #10b981;">
+    <div style="aspect-ratio: 1; background: #10b981; border-radius: 4px;"></div>
+    <div style="aspect-ratio: 1; background: #10b981; border-radius: 4px;"></div>
+    <div style="aspect-ratio: 1; background: #10b981; border-radius: 4px;"></div>
+    <div style="aspect-ratio: 1; background: #10b981; border-radius: 4px;"></div>
+    <div style="aspect-ratio: 1; background: #10b981; border-radius: 4px;"></div>
+    <div style="aspect-ratio: 1; background: #10b981; border-radius: 4px;"></div>
+</div>
+
+<pre><code class="language-dart">GridView.count(
+  crossAxisCount: 2, // Quantas colunas
+  children: [
+    Image.asset('img1.png'),
+    Image.asset('img2.png'),
+  ],
+)</code></pre>
+
+<h2>3. ListTile: O Especialista em Listas</h2>
+<p>O Flutter oferece o widget <code>ListTile</code> pronto para seguir os padrões de design do Material Design. Ele já
+    vem com espaços para ícone inicial (leading), título, subtítulo e ícone final (trailing).</p>
+
+<div class="callout info">
+    <div class="callout-title">💡 ListTile</div>
+    Sempre que puder, use <code>ListTile</code> dentro de suas listas. Ele economiza horas de estilização manual e já
+    tem o comportamento de clique (onTap) embutido.
+</div>
+
+<hr style="margin: 40px 0;">
+
+<h2>🎯 Desafio Técnico</h2>
+<p>Você precisa criar uma lista de contatos. Cada contato tem um <strong>Nome</strong> e um <strong>Telefone</strong>.
+    Como você usaria o <code>ListView.builder</code> para exibir uma lista que vem de uma variável chamada
+    <code>usuarios</code>?</p>
+
+<details style="margin-top: 20px; cursor: pointer; background: #f3f4f6; padding: 15px; border-radius: 8px;">
+    <summary><strong>Ver Solução</strong></summary>
+    <div style="margin-top: 10px;">
+        <pre><code class="language-dart">ListView.builder(
+  itemCount: usuarios.length,
+  itemBuilder: (context, index) {
+    return ListTile(
+      leading: CircleAvatar(child: Text(usuarios[index].nome[0])),
+      title: Text(usuarios[index].nome),
+      subtitle: Text(usuarios[index].telefone),
+      trailing: Icon(Icons.call),
+    );
+  },
+)</code></pre>
+    </div>
+</details>
+
+<div class="callout tip">
+    <div class="callout-title">🚀 Lazy Loading</div>
+    O segredo da fluidez do Flutter é o <strong>Lazy Loading</strong> do builder. Ele não gasta memória processando o
+    item 500 se o usuário está vendo apenas o item 1 ao 5.
+</div>

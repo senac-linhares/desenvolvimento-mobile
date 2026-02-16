@@ -1,0 +1,106 @@
+[
+    {
+        "id": "unit-1",
+        "title": "Unidade 01: Introdução ao Flutter",
+        "lessons": [
+            {
+                "id": "u1-l1",
+                "title": "Desenvolvimento Cross-platform",
+                "path": "content/desenvolvimento-mobile/Unidade 01/aula-01.md"
+            },
+            {
+                "id": "u1-l2",
+                "title": "O que é Flutter?",
+                "path": "content/desenvolvimento-mobile/Unidade 01/aula-02.md"
+            },
+            {
+                "id": "u1-l3",
+                "title": "Instalação do Flutter",
+                "path": "content/desenvolvimento-mobile/Unidade 01/aula-03.md"
+            },
+            {
+                "id": "u1-l4",
+                "title": "Coleções em Dart",
+                "path": "content/desenvolvimento-mobile/Unidade 01/aula-04.md"
+            },
+            {
+                "id": "u1-l5",
+                "title": "Orientação a Objetos em Dart",
+                "path": "content/desenvolvimento-mobile/Unidade 01/aula-05.md"
+            }
+        ]
+    },
+    {
+        "id": "unit-2",
+        "title": "Unidade 02: Fundamentos do Flutter",
+        "lessons": [
+            {
+                "id": "u2-l1",
+                "title": "Hello Flutter App",
+                "path": "content/desenvolvimento-mobile/Unidade 02/aula-01.md"
+            },
+            {
+                "id": "u2-l2",
+                "title": "Anatomia do App Flutter",
+                "path": "content/desenvolvimento-mobile/Unidade 02/aula-02.md"
+            },
+            {
+                "id": "u2-l3",
+                "title": "Criando um Projeto Flutter",
+                "path": "content/desenvolvimento-mobile/Unidade 02/aula-03.md"
+            },
+            {
+                "id": "u2-l4",
+                "title": "Estrutura do Código",
+                "path": "content/desenvolvimento-mobile/Unidade 02/aula-04.md"
+            },
+            {
+                "id": "u2-l5",
+                "title": "O Widget SafeArea",
+                "path": "content/desenvolvimento-mobile/Unidade 02/aula-05.md"
+            },
+            {
+                "id": "u2-l6",
+                "title": "O Widget Scaffold",
+                "path": "content/desenvolvimento-mobile/Unidade 02/aula-06.md"
+            }
+        ]
+    },
+    {
+        "id": "unit-3",
+        "title": "Unidade 03: Layouts e Widgets",
+        "lessons": [
+            {
+                "id": "u3-l1",
+                "title": "Stateless vs Stateful",
+                "path": "content/desenvolvimento-mobile/Unidade 03/aula-01.md"
+            },
+            {
+                "id": "u3-l2",
+                "title": "Column, Row e Stack",
+                "path": "content/desenvolvimento-mobile/Unidade 03/aula-02.md"
+            },
+            {
+                "id": "u3-l3",
+                "title": "Container e Padding",
+                "path": "content/desenvolvimento-mobile/Unidade 03/aula-03.md"
+            },
+            {
+                "id": "u3-l4",
+                "title": "ListView e GridView",
+                "path": "content/desenvolvimento-mobile/Unidade 03/aula-04.md"
+            }
+        ]
+    },
+    {
+        "id": "unit-4",
+        "title": "Unidade 04: Interatividade e Navegação",
+        "lessons": [
+            {
+                "id": "u4-l1",
+                "title": "Gestos e Botões",
+                "path": "content/desenvolvimento-mobile/Unidade 04/aula-01.md"
+            }
+        ]
+    }
+]

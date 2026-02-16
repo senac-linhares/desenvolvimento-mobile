@@ -1,0 +1,137 @@
+<h1>Stateless vs Stateful Widgets</h1>
+
+<p>No Flutter, quase tudo é um <strong>Widget</strong>. Entender a diferença entre widgets que "têm estado" e os que
+    "não têm" é o divisor de águas entre criar uma interface estática e um aplicativo interativo.</p>
+
+<div class="hero-section"
+    style="background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%); color: white; padding: 40px; border-radius: 12px; margin-bottom: 40px;">
+    <h2 style="color: white; border: none; margin-top: 0;">Reatividade é a Chave</h2>
+    <p>O Flutter é um framework reativo: quando o estado de um widget muda, ele se redesenha automaticamente para
+        refletir essa mudança.</p>
+</div>
+
+<div class="tree-diagram"
+    style="margin: 40px 0; padding: 20px; background: #f8fafc; border-radius: 12px; border: 1px solid var(--border);">
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 10px;">
+        <div
+            style="padding: 10px 20px; background: #6366f1; color: white; border-radius: 6px; font-weight: bold; font-size: 0.9rem;">
+            MaterialApp</div>
+        <div style="height: 20px; width: 2px; background: #cbd5e1;"></div>
+        <div
+            style="padding: 10px 20px; background: #818cf8; color: white; border-radius: 6px; font-weight: bold; font-size: 0.9rem;">
+            Scaffold</div>
+        <div style="display: flex; gap: 40px; margin-top: 10px;">
+            <div style="display: flex; flex-direction: column; align-items: center;">
+                <div style="height: 20px; width: 2px; background: #cbd5e1;"></div>
+                <div
+                    style="padding: 8px 15px; background: #94a3b8; color: white; border-radius: 6px; font-size: 0.8rem;">
+                    AppBar</div>
+            </div>
+            <div style="display: flex; flex-direction: column; align-items: center;">
+                <div style="height: 20px; width: 2px; background: #cbd5e1;"></div>
+                <div
+                    style="padding: 10px 20px; background: #3b82f6; color: white; border-radius: 6px; font-weight: bold; font-size: 0.8rem;">
+                    Center</div>
+                <div style="height: 20px; width: 2px; background: #cbd5e1;"></div>
+                <div
+                    style="padding: 8px 15px; background: #10b981; color: white; border-radius: 6px; font-size: 0.8rem;">
+                    Text</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<h2>1. StatelessWidget: A Imutabilidade</h2>
+<p>Um <strong>StatelessWidget</strong> é "burro" no bom sentido. Ele recebe dados e os exibe. Ele não pode mudar sozinho
+    após ser construído.</p>
+
+<div style="background: #f1f5f9; padding: 20px; border-radius: 8px; margin: 20px 0;">
+    <pre><code class="language-dart">class MeuTexto extends StatelessWidget {
+  final String conteudo;
+  
+  const MeuTexto(this.conteudo);
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(conteudo);
+  }
+}</code></pre>
+    <p style="font-size: 0.9rem;"><strong>Importante:</strong> Se as propriedades de um StatelessWidget mudarem (vindas
+        do Widget pai), o Flutter simplesmente destrói o objeto antigo e cria um NOVO. Widgets são baratos de criar.</p>
+</div>
+
+<h2>2. StatefulWidget: Onde a Mágica Acontece</h2>
+<p>Diferente do anterior, o <strong>StatefulWidget</strong> é composto por duas classes: a classe do Widget (que é
+    imutável) e a classe do <strong>State</strong> (que é mutável e persistente).</p>
+
+<div class="callout info">
+    <div class="callout-title">🧠 Memória de Longo Prazo</div>
+    O segredo está no <strong>Element Tree</strong>. Enquanto os Widgets são destruídos a cada frame, o
+    <strong>Element</strong> correspondente na árvore mantém a referência para o objeto <strong>State</strong>,
+    permitindo que ele sobreviva entre um rebuild e outro.
+</div>
+
+<h3>A Função setState() e o Escopo de Rebuild</h3>
+<p>Ao chamar <code>setState(() {...})</code>, você marca o widget como "sujo" (dirty). Na próxima atualização de tela, o
+    Flutter executará o método <code>build</code> apenas deste widget e de seus filhos.</p>
+
+<div style="background: #fff5f5; border: 1px solid #feb2b2; padding: 15px; border-radius: 8px; margin: 20px 0;">
+    <strong>Dica de Sênior:</strong> Não coloque lógica pesada dentro do <code>build</code>. Como ele pode ser chamado
+    60 ou 120 vezes por segundo, qualquer cálculo lento vai travar a interface do seu aluno.
+</div>
+
+<h2>3. O papel das Keys</h2>
+<p>As <code>Keys</code> são essenciais quando você tem uma lista de StatefulWidgets (ex: uma lista de tarefas onde você
+    pode deletar itens). Sem Keys, o Flutter pode se confundir e "atribuir" o estado de um item deletado ao novo item
+    que subiu na lista.</p>
+
+<pre><code class="language-dart">// O uso de ValueKey garante que o estado siga o item correto
+ItemTarefa(key: ValueKey(tarefa.id), tarefa: tarefa);</code></pre>
+
+<h2>4. O Ciclo de Vida do Estado (Expandido)</h2>
+<p>Além do básico, entenda estes momentos críticos:</p>
+<ul>
+    <li><strong>didUpdateWidget():</strong> Chamado quando o widget pai reconstrói e passa novos dados para este widget,
+        mas você quer comparar o valor antigo com o novo.</li>
+    <li><strong>didChangeDependencies():</strong> Chamado logo após o <code>initState</code> e quando um objeto que este
+        widget depende (via InheritedWidget) muda.</li>
+</ul>
+
+<div class="callout tip">
+    <div class="callout-title">🚀 Dica de Performance</div>
+    Sempre prefira o <strong>StatelessWidget</strong> sempre que possível. Ele é mais leve para o sistema. Só use
+    <strong>Stateful</strong> se os dados precisarem mudar enquanto o usuário está na tela.
+</div>
+
+<hr style="margin: 40px 0;">
+
+<h2>🎯 Desafio de Lógica</h2>
+<p>Você está criando uma tela de "Perfil de Usuário". Nesta tela temos:</p>
+<ol>
+    <li>O nome do usuário (que nunca muda).</li>
+    <li>Uma foto de capa fixa.</li>
+    <li>Um botão "Seguir" que muda de cor e texto quando clicado.</li>
+</ol>
+
+<div style="background: #fff; border: 2px dashed var(--primary); padding: 20px; border-radius: 8px; margin-top: 20px;">
+    <p><strong>Quais desses componentes devem ser Stateless e quais devem ser Stateful?</strong></p>
+</div>
+
+<details style="margin-top: 20px; cursor: pointer; background: #f3f4f6; padding: 15px; border-radius: 8px;">
+    <summary><strong>Ver Solução</strong></summary>
+    <div style="margin-top: 10px;">
+        <ul>
+            <li><strong>Nome e Foto:</strong> Stateless (não mudam durante a sessão).</li>
+            <li><strong>Botão "Seguir":</strong> Stateful (precisa mudar seu estado visual de "Seguir" para "Seguindo"
+                ao ser clicado).</li>
+            <li><strong>A Tela Inteira:</strong> Geralmente será um StatefulWidget para gerenciar o estado do botão
+                interno e carregar dados.</li>
+        </ul>
+    </div>
+</details>
+
+<div class="callout warning">
+    <div class="callout-title">⚠️ Curiosidade</div>
+    Internamente, até o <code>Scaffold</code> é um Widget. No Flutter, você constrói widgets complexos compondo widgets
+    mais simples.
+</div>

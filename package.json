@@ -1,0 +1,17 @@
+{
+  "name": "prof-dev",
+  "version": "1.0.0",
+  "description": "Um app inspirado no Educative.io para seus projetos como professor pode focar em conteúdos textuais interativos, exercícios de código em browser e trilhas guiadas para seus alunos de desenvolvimento de sistemas.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "vite": "^7.3.1"
+  }
+}

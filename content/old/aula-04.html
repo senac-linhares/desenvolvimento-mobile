@@ -1,0 +1,84 @@
+<h1>Estrutura de Projetos (Deep Dive)</h1>
+
+<p>Ao criar um projeto Flutter, você verá uma selva de pastas e arquivos. Entender onde cada coisa deve ficar é o
+    primeiro passo para criar apps de nível profissional.</p>
+
+<div
+    style="background: #f8fafc; border: 1px solid var(--border); border-radius: 8px; padding: 20px; font-family: var(--font-mono); font-size: 0.9rem;">
+    📁 meu_app/<br>
+    ├── 📁 android/ <span style="color: var(--text-muted);"># Código nativo Android</span><br>
+    ├── 📁 ios/ <span style="color: var(--text-muted);"># Código nativo iOS</span><br>
+    ├── 📁 lib/ <span style="color: var(--text-muted); font-weight: bold;"># Onde o código Dart reside</span><br>
+    │&nbsp;&nbsp;&nbsp;└── 📄 main.dart<br>
+    ├── 📁 test/ <span style="color: var(--text-muted);"># Testes automatizados</span><br>
+    ├── 📁 assets/ <span style="color: var(--text-muted);"># Imagens, fontes e JSONs</span><br>
+    ├── 📄 pubspec.yaml <span style="color: var(--text-muted); font-weight: bold;"># O "Cérebro" do projeto</span><br>
+    └── 📄 .gitignore
+</div>
+
+<h2>1. O Arquivo pubspec.yaml</h2>
+<p>Este arquivo é fundamental. Ele gerencia as dependências e recursos do seu app. Se você quer instalar um banco de
+    dados ou usar uma fonte personalizada, é aqui que deve vir.</p>
+
+<pre><code class="language-yaml">name: meu_app
+description: Um novo projeto Flutter.
+
+dependencies:
+  flutter:
+    sdk: flutter
+  http: ^1.1.0 # Exemplo de biblioteca externa
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/images/logo.png</code></pre>
+
+<div class="callout warning">
+    <div class="callout-title">⚠️ Indentação no YAML</div>
+    O arquivo YAML é extremamente sensível a espaços. Um espaço a mais ou a menos pode quebrar o build do seu projeto!
+</div>
+
+<h2>2. A Pasta lib/ e Boas Práticas</h2>
+<p>Em projetos pequenos, tudo fica na pasta <code>lib</code>. Em projetos reais, organizamos por camadas:</p>
+<ul>
+    <li><strong>lib/models:</strong> Classes de dados.</li>
+    <li><strong>lib/screens:</strong> As páginas do seu aplicativo.</li>
+    <li><strong>lib/widgets:</strong> Componentes reutilizáveis (ex: seu próprio botão).</li>
+    <li><strong>lib/services:</strong> Classes que lidam com APIs ou banco de dados.</li>
+</ul>
+
+<h2>3. Pastas de Plataforma (android, ios, web)</h2>
+<p>Embora você programe em Dart, o Flutter compila para código nativo. Às vezes, você precisará entrar na pasta
+    <code>android</code> para mudar ícones do app ou permissões de GPS no <code>AndroidManifest.xml</code>.</p>
+
+<hr style="margin: 40px 0;">
+
+<h2>🎯 Desafio de Organização</h2>
+<p>Você está criando um App de Receitas. Onde você salvaria os seguintes itens?</p>
+
+<div style="background: #fff; border: 2px dashed var(--primary); padding: 20px; border-radius: 8px; margin-top: 20px;">
+    <ol>
+        <li>O ícone do aplicativo para Android.</li>
+        <li>A lógica para buscar receitas na internet.</li>
+        <li>Uma imagem de um bolo deliciosa.</li>
+        <li>O código da tela de login.</li>
+    </ol>
+</div>
+
+<details style="margin-top: 20px; cursor: pointer; background: #f3f4f6; padding: 15px; border-radius: 8px;">
+    <summary><strong>Ver Respostas</strong></summary>
+    <div style="margin-top: 10px;">
+        <ol>
+            <li><code>android/app/src/main/res</code></li>
+            <li><code>lib/services</code></li>
+            <li><code>assets/images</code></li>
+            <li><code>lib/screens</code></li>
+        </ol>
+    </div>
+</details>
+
+<div class="callout tip">
+    <div class="callout-title">💡 Dica de Ouro</div>
+    Sempre que adicionar algo novo no <code>pubspec.yaml</code>, não esqueça de rodar o comando
+    <code>flutter pub get</code> no terminal!
+</div>

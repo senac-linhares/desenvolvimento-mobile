@@ -1,0 +1,92 @@
+<h1>Coleções em Dart</h1>
+
+<p>No desenvolvimento mobile, raramente lidamos com dados sozinhos. Geralmente, trabalhamos com listas de usuários,
+    mapas de configurações ou conjuntos de categorias. O Dart oferece coleções poderosas para gerenciar esses dados.</p>
+
+<div class="hero-section"
+    style="background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); color: white; padding: 40px; border-radius: 12px; margin-bottom: 40px;">
+    <h2 style="color: white; border: none; margin-top: 0;">Manipulando Dados com Estilo</h2>
+    <p>Aprenda a usar Listas, Mapas e Conjuntos, e como transformar dados usando programação funcional em Dart.</p>
+</div>
+
+<h2>1. Listas (Lists)</h2>
+<p>As listas são coleções ordenadas de objetos. No Dart, as listas são arrays de tamanho variável por padrão.</p>
+
+<pre><code class="language-dart">var frutas = ["Banana", "Maçã", "Laranja"];
+frutas.add("Morango");
+print(frutas[0]); // Banana
+
+// Lista tipada e imutável
+const List&lt;String&gt; nomes = ["Welton", "Ana"];</code></pre>
+
+<h2>2. Mapas (Maps)</h2>
+<p>Diferente das listas que usam índices numéricos, os mapas usam chaves e valores. É muito similar ao JSON.</p>
+
+<pre><code class="language-dart">Map&lt;String, dynamic&gt; usuario = {
+  "nome": "Professor",
+  "idade": 30,
+  "ativo": true
+};
+
+print(usuario["nome"]); // Professor</code></pre>
+
+<div class="callout warning">
+    <div class="callout-title">⚠️ Chaves em Mapas</div>
+    Se você tentar acessar uma chave que não existe em um mapa, o Dart retornará <code>null</code> em vez de lançar um
+    erro.
+</div>
+
+<h2>3. Conjuntos (Sets)</h2>
+<p>Um Set é uma coleção de itens únicos. Se você tentar adicionar um item duplicado, ele será ignorado.</p>
+
+<pre><code class="language-dart">var numeros = {1, 2, 3, 3}; 
+print(numeros); // {1, 2, 3} - O segundo 3 foi ignorado automaticamente.</code></pre>
+
+<h2>4. Operadores Mágicos (.map, .where, .forEach)</h2>
+<p>O Dart permite que você processe coleções de forma funcional, sem precisar de loops <code>for</code> complexos.</p>
+
+<div style="background: #f1f5f9; padding: 20px; border-radius: 8px; margin: 25px 0;">
+    <pre><code class="language-dart">var precos = [10, 25, 50, 100];
+
+// Filtrar apenas preços maiores que 30
+var caros = precos.where((p) => p > 30).toList();
+
+// Transformar (mapear) aumentando 10%
+var novosPrecos = precos.map((p) => p * 1.1).toList();</code></pre>
+</div>
+
+<div class="callout tip">
+    <div class="callout-title">💡 Spread Operator (...)</div>
+    Você pode "espalhar" os elementos de uma lista dentro de outra usando <code>...</code>. Isso é muito útil para
+    construir listas de widgets dinâmicas no Flutter.
+</div>
+
+<hr style="margin: 40px 0;">
+
+<h2>🎯 Desafio de Coleção</h2>
+<p>Dada a lista de notas abaixo, como você obteria apenas os alunos que foram <strong>aprovados</strong> (nota >= 7) e
+    transformaria seus nomes para <strong>MAIÚSCULO</strong>?</p>
+
+<pre><code class="language-dart">var alunos = [
+  {"nome": "João", "nota": 8},
+  {"nome": "Maria", "nota": 6},
+  {"nome": "Pedro", "nota": 9}
+];</code></pre>
+
+<details style="margin-top: 20px; cursor: pointer; background: #f3f4f6; padding: 15px; border-radius: 8px;">
+    <summary><strong>Ver Solução</strong></summary>
+    <div style="margin-top: 10px;">
+        <pre><code class="language-dart">var aprovados = alunos
+  .where((a) => a["nota"] >= 7)
+  .map((a) => a["nome"].toString().toUpperCase())
+  .toList();
+
+print(aprovados); // [JOÃO, PEDRO]</code></pre>
+    </div>
+</details>
+
+<div class="callout info">
+    <div class="callout-title">📦 .toList()</div>
+    Muitos métodos como <code>.map</code> e <code>.where</code> retornam um <code>Iterable</code>. Para obter uma lista
+    real de volta, não esqueça de chamar o <code>.toList()</code> no final da cadeia.
+</div>

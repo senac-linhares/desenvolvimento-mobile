@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EduDev Classroom</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+  <link rel="stylesheet" href="src/style.css">
+</head>
+
+<body>
+  <div id="app">
+    <aside id="sidebar">
+      <div class="sidebar-header">
+        <h1>Prof. Welton Castoldi</h1>
+      </div>
+      <nav id="course-menu">
+        <!-- Menu items will be injected here -->
+        <div class="skeleton-menu">Carregando unidades...</div>
+      </nav>
+    </aside>
+
+    <main id="main-content">
+      <header id="top-nav">
+        <div class="breadcrumbs" id="breadcrumbs">
+          <span>Curso</span> / <span id="current-unit-name">...</span>
+        </div>
+        <div class="nav-controls">
+          <button id="prev-lesson" class="btn secondary">Anterior</button>
+          <button id="next-lesson" class="btn primary">Próxima</button>
+        </div>
+      </header>
+
+      <article id="lesson-container" class="content-area">
+        <!-- Content will be injected here -->
+        <div class="welcome-message">
+          <h2>Bem-vindo ao Prof. Welton Castoldi</h2>
+          <p>Selecione uma aula no menu lateral para começar.</p>
+        </div>
+      </article>
+
+      <footer id="content-footer">
+        <div class="nav-controls footer-nav">
+          <button id="prev-lesson-footer" class="btn secondary">Anterior</button>
+          <button id="next-lesson-footer" class="btn primary">Próxima Aula</button>
+        </div>
+      </footer>
+    </main>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-dart.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+  <script>mermaid.initialize({ startOnLoad: true, theme: 'default' });</script>
+  <script type="module" src="src/main.js"></script>
+</body>
+
+</html>

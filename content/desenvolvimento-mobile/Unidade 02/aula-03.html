@@ -1,0 +1,208 @@
+<h1>Criando um Projeto Flutter</h1>
+
+<p>Antes de criarmos nosso primeiro aplicativo, precisamos garantir que sua "oficina" esteja pronta. Nesta aula, vamos
+    cobrir desde a instalação das ferramentas até o entendimento profundo da estrutura de um projeto profissional.</p>
+
+<div class="hero-section"
+    style="background: linear-gradient(135deg, #0ea5e9 0%, #0369a1 100%); color: white; padding: 40px; border-radius: 12px; margin-bottom: 40px;">
+    <h2 style="color: white; border: none; margin-top: 0;">Sua Bancada de Trabalho</h2>
+    <p>Vamos configurar o ambiente de desenvolvimento perfeito no Windows e dissecarmos a anatomia de um projeto Flutter
+        profissional.</p>
+</div>
+
+<h2>1. Preparando o Terreno (Windows)</h2>
+<p>Para desenvolver em Flutter, você precisa de três ingredientes principais: o <strong>SDK do Flutter</strong>, um
+    <strong>Editor de Código</strong> e o <strong>Git</strong>.
+</p>
+
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 30px;">
+    <div style="background: #f8fafc; padding: 20px; border-radius: 8px; border: 1px solid #e2e8f0;">
+        <h3 style="margin-top: 0; font-size: 1.1rem;">🛠️ 1. O SDK do Flutter</h3>
+        <ol style="font-size: 0.9rem; margin-left: 20px;">
+            <li>Baixe o <a
+                    href="https://storage.googleapis.com/flutter_infra_release/releases/stable/windows/flutter_windows_stable.zip"
+                    target="_blank" style="color: #0ea5e9; text-decoration: underline;">Flutter SDK (Zip)</a>.</li>
+            <li>Extraia a pasta <code>flutter</code> para um local como <code>C:\src\flutter</code> (evite "Arquivos de
+                Programas").</li>
+            <li>Adicione a pasta <code>flutter\bin</code> às <strong>Variáveis de Ambiente (Path)</strong> do Windows.
+            </li>
+        </ol>
+    </div>
+
+    <div style="background: #f8fafc; padding: 20px; border-radius: 8px; border: 1px solid #e2e8f0;">
+        <h3 style="margin-top: 0; font-size: 1.1rem;">🩺 2. O Checkup Médico</h3>
+        <p style="font-size: 0.9rem;">Abra seu terminal (PowerShell ou CMD) e rode o comando:</p>
+        <pre style="margin: 10px 0;"><code class="language-bash">flutter doctor</code></pre>
+        <p style="font-size: 0.9rem;">Ele vai te dizer exatamente o que falta instalar (ex: Android Studio ou Visual
+            Studio C++).</p>
+    </div>
+</div>
+
+<h2>2. Escolhendo sua Arma: VS Code ou Android Studio?</h2>
+<p>Ambos são excelentes. O Flutter funciona 100% em qualquer um. Veja a configuração recomendada:</p>
+
+<div class="ide-comparison" style="display: flex; flex-direction: column; gap: 30px; margin-top: 20px;">
+    <!-- VS Code Card -->
+    <div
+        style="border: 1px solid #e0e7ff; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);">
+        <div
+            style="background: #eef2ff; padding: 15px 25px; border-bottom: 1px solid #e0e7ff; display: flex; align-items: center; gap: 10px;">
+            <span style="font-size: 1.5rem;">🔵</span>
+            <h3 style="margin: 0; color: #3730a3; font-size: 1.1rem;">Visual Studio Code <span
+                    style="font-weight: normal; font-size: 0.9rem; color: #6366f1;">(Recomendado)</span></h3>
+        </div>
+
+        <div style="padding: 25px;">
+            <strong style="color: #3730a3; display: block; margin-bottom: 10px;">1. Extensões Essenciais</strong>
+            <ul style="margin-bottom: 20px; color: #4b5563;">
+                <li style="margin-bottom: 5px;"><strong>Flutter</strong> (Oficial)</li>
+                <li style="margin-bottom: 5px;"><strong>Awesome Flutter Snippets</strong></li>
+                <li style="margin-bottom: 5px;"><strong>Error Lens</strong> (Para ver erros na hora)</li>
+            </ul>
+
+            <div
+                style="background: #f5f3ff; border: 1px dashed #6366f1; padding: 15px; border-radius: 8px; margin-bottom: 25px;">
+                <strong style="color: #4f46e5; display: block; margin-bottom: 5px;">🚀 Atalho Mágico</strong>
+                Use <code>Ctrl + Shift + P</code> e digite "Flutter: New Project".
+            </div>
+
+            <strong style="color: #3730a3; display: block; margin-bottom: 10px;">2. Como Criar o Projeto</strong>
+            <ol style="color: #4b5563; line-height: 1.8;">
+                <li>Abra a Paleta de Comandos (<code>Ctrl + Shift + P</code>).</li>
+                <li>Selecione <strong>Flutter: New Project</strong> -> <strong>Application</strong>.</li>
+                <li>Escolha a pasta de destino.</li>
+                <li>Nomeie o projeto (ex: <code>meu_app</code>) e dê Enter.</li>
+            </ol>
+        </div>
+    </div>
+
+    <!-- Android Studio Card -->
+    <div
+        style="border: 1px solid #dcfce7; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);">
+        <div
+            style="background: #f0fdf4; padding: 15px 25px; border-bottom: 1px solid #dcfce7; display: flex; align-items: center; gap: 10px;">
+            <span style="font-size: 1.5rem;">🟢</span>
+            <h3 style="margin: 0; color: #065f46; font-size: 1.1rem;">Android Studio <span
+                    style="font-weight: normal; font-size: 0.9rem; color: #10b981;">(Completo)</span></h3>
+        </div>
+
+        <div style="padding: 25px;">
+            <strong style="color: #065f46; display: block; margin-bottom: 10px;">1. Instalação do Plugin</strong>
+            <ul style="margin-bottom: 20px; color: #4b5563;">
+                <li>Vá em <strong>Plugins</strong> no menu inicial.</li>
+                <li>Busque por <strong>Flutter</strong> e instale.</li>
+                <li>Reinicie o Android Studio.</li>
+            </ul>
+
+            <strong style="color: #065f46; display: block; margin-bottom: 10px;">2. Como Criar o Projeto</strong>
+            <ol style="color: #4b5563; line-height: 1.8;">
+                <li>Clique em <strong>New Flutter Project</strong> na tela inicial.</li>
+                <li>Selecione <strong>Flutter</strong> no menu lateral e o caminho do SDK.</li>
+                <li>Preencha os dados do projeto e clique em <strong>Create</strong>.</li>
+            </ol>
+        </div>
+    </div>
+</div>
+
+<hr style="margin: 40px 0;">
+
+<h2>3. Configurando o Emulador (AVD)</h2>
+<p>Para ver seu app rodando sem precisar de um celular físico conectado, usamos o <strong>Android Virtual Device
+        (AVD)</strong>. Mesmo que você use o VS Code, o emulador é gerenciado pelo Android Studio.</p>
+
+<div style="background: #fff1f2; border: 1px solid #fda4af; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
+    <h3 style="margin-top: 0; color: #be123c; display: flex; align-items: center; gap: 10px;">
+        📲 Criando seu Primeiro Celular Virtual
+    </h3>
+    <ol style="margin-left: 20px; color: #881337;">
+        <li>Abra o <strong>Android Studio</strong>.</li>
+        <li>Na tela de boas-vindas, clique em <strong>More Actions</strong> > <strong>Virtual Device Manager</strong>.
+        </li>
+        <li>Clique no botão <strong>Create Device</strong>.</li>
+        <li>Escolha um modelo (Ex: <em>Pixel 5</em>) e clique em <strong>Next</strong>.</li>
+        <li>Selecione uma imagem do sistema (Ex: <em>Release Name: R</em> ou <em>S</em>) e clique no ícone de
+            <strong>Download</strong> ao lado dela.
+        </li>
+        <li>Após o download, selecione a imagem e clique em <strong>Next</strong> > <strong>Finish</strong>.</li>
+    </ol>
+    <p style="font-size: 0.9rem; margin-top: 10px;"><strong>Pronto!</strong> Agora, no VS Code ou Android Studio, basta
+        selecionar esse dispositivo no canto inferior direito para rodar seu app.</p>
+</div>
+
+<div class="callout tip">
+    <div class="callout-title">💡 Celular Físico</div>
+    Se seu PC for lento, você pode usar seu próprio celular Android via cabo USB! Basta ativar a <strong>Depuração
+        USB</strong> nas configurações de desenvolvedor do seu telefone.
+</div>
+
+<hr style="margin: 40px 0;">
+
+<h2>4. Estrutura de Projetos (Deep Dive)</h2>
+<p>Ao criar um projeto, você verá uma selva de pastas. Entender onde cada coisa deve ficar é o primeiro passo para criar
+    apps de nível profissional.</p>
+
+<div
+    style="background: #1e293b; color: #e2e8f0; border-radius: 8px; padding: 25px; font-family: var(--font-mono); font-size: 0.9rem; margin-bottom: 30px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);">
+    📂 meu_app/<br>
+    ├── 📂 android/ <span style="color: #94a3b8;"># Código nativo Android (Gradle, Manifest)</span><br>
+    ├── 📂 ios/ <span style="color: #94a3b8;"># Código nativo iOS (Runner, Info.plist)</span><br>
+    ├── 📂 <strong style="color: #4ade80;">lib/</strong> <span style="color: #4ade80; font-weight: bold;"># Onde o
+        código Dart reside (Seu escritório!)</span><br>
+    │&nbsp;&nbsp;&nbsp;└── 📄 <span class="flutter-keyword">main.dart</span> <span style="color: #94a3b8;"># Ponto de
+        entrada</span><br>
+    ├── 📂 test/ <span style="color: #94a3b8;"># Testes automatizados</span><br>
+    ├── 📂 assets/ <span style="color: #94a3b8;"># (Crie esta pasta) Imagens, fontes e JSONs</span><br>
+    ├── 📄 <span class="flutter-keyword">pubspec.yaml</span> <span style="color: #fca5a5; font-weight: bold;"># O
+        "Cérebro" do projeto</span><br>
+    └── 📄 .gitignore
+</div>
+
+<h3>3.1 O Arquivo <span class="flutter-keyword">pubspec.yaml</span></h3>
+<p>Este arquivo é fundamental. Ele gerencia as dependências e recursos do seu app. Se você quer instalar um banco de
+    dados ou usar uma fonte personalizada, é aqui que deve vir.</p>
+
+<pre><code class="language-yaml">name: meu_app
+description: Um novo projeto Flutter.
+
+dependencies:
+  flutter:
+    sdk: flutter
+  http: ^1.1.0 # Exemplo de biblioteca externa
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/images/logo.png</code></pre>
+
+<div class="callout warning">
+    <div class="callout-title">⚠️ Cuidado com a Indentação!</div>
+    O arquivo YAML é extremamente sensível a espaços. Um espaço a mais ou a menos pode quebrar o build do seu projeto!
+    Use sempre 2 espaços para indentar.
+</div>
+
+<h3>3.2 A Pasta <span class="flutter-keyword">lib/</span> e Boas Práticas</h3>
+<p>Em projetos pequenos, tudo fica na raiz da pasta <code>lib</code>. Porém, em projetos reais, organizamos por camadas
+    para não nos perdermos:</p>
+<ul style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; list-style: none; padding: 0;">
+    <li style="background: #f8fafc; padding: 10px; border-radius: 6px; border: 1px solid #e2e8f0;">�
+        <strong>lib/models:</strong> Moldes dos seus dados (ex: Usuario, Produto).
+    </li>
+    <li style="background: #f8fafc; padding: 10px; border-radius: 6px; border: 1px solid #e2e8f0;">📁
+        <strong>lib/screens:</strong> As telas visuais do aplicativo.
+    </li>
+    <li style="background: #f8fafc; padding: 10px; border-radius: 6px; border: 1px solid #e2e8f0;">📁
+        <strong>lib/widgets:</strong> Componentes reutilizáveis (ex: seu botão personalizado).
+    </li>
+    <li style="background: #f8fafc; padding: 10px; border-radius: 6px; border: 1px solid #e2e8f0;">📁
+        <strong>lib/services:</strong> Lógica de API e Banco de Dados.
+    </li>
+</ul>
+
+<hr style="margin: 40px 0;">
+
+
+<div class="callout tip">
+    <div class="callout-title">💡 Dica de Ouro</div>
+    Sempre que adicionar algo novo no <span class="flutter-keyword">pubspec.yaml</span>, não esqueça de rodar o comando
+    <code>flutter pub get</code> no terminal! (Ou clique no botão de download que aparece no VS Code).
+</div>

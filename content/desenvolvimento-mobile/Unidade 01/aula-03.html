@@ -1,0 +1,133 @@
+<h1>Instalação do Flutter: O Guia Sem Medo</h1>
+
+<p>Muitas pessoas travam na hora de configurar o ambiente de desenvolvimento. Mas não se preocupe! Hoje, o Flutter
+    facilitou muito esse processo. Vamos transformar seu computador em uma fábrica de aplicativos em poucos passos.</p>
+
+<div class="hero-section"
+    style="background: linear-gradient(135deg, #0284c7 0%, #0ea5e9 100%); color: white; padding: 40px; border-radius: 12px; margin-bottom: 40px;">
+    <h2 style="color: white; border: none; margin-top: 0;">Seu PC, Pronto para o Sucesso</h2>
+    <p>Neste guia, vamos usar o método moderno: instalando tudo direto pelo VS Code. É mais rápido, mais simples e menos
+        propenso a erros.</p>
+</div>
+
+<div class="hero-image"
+    style="margin-bottom: 30px; border-radius: 12px; overflow: hidden; height: 300px; position: relative;">
+    <img src="https://storage.googleapis.com/cms-storage-bucket/flutter-on-mobile.2f118a9971e4ca6ad737.png"
+        alt="Instalação do Flutter" style="width: 100%; height: 100%; object-fit: cover;">
+    <div
+        style="position: absolute; bottom: 0; left: 0; right: 0; background: rgba(0,0,0,0.6); padding: 20px; color: white;">
+        <small>Configuração: O primeiro passo para criar algo incrível.</small>
+    </div>
+</div>
+
+<h2>Passo 1: Os Pré-requisitos Básicos</h2>
+<p>Antes de chamarmos o Flutter, precisamos de duas ferramentas essenciais que todo desenvolvedor usa:</p>
+
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 25px 0;">
+    <div style="background: #f8fafc; padding: 20px; border-radius: 8px; border: 1px solid #e2e8f0;">
+        <strong>1. Git (O Historiador)</strong>
+        <p style="font-size: 0.85rem; margin-top: 5px;">O Flutter usa o Git para baixar seus arquivos. <a
+                href="https://git-scm.com/downloads" target="_blank">Baixe e instale aqui</a> (basta clicar em 'Next' em
+            tudo).</p>
+    </div>
+    <div style="background: #f8fafc; padding: 20px; border-radius: 8px; border: 1px solid #e2e8f0;">
+        <strong>2. VS Code (O Escritório)</strong>
+        <p style="font-size: 0.85rem; margin-top: 5px;">É onde você vai escrever seu código. <a
+                href="https://code.visualstudio.com/" target="_blank">Baixe o Visual Studio Code aqui</a>.</p>
+    </div>
+</div>
+
+<hr style="margin: 40px 0;">
+
+<h2>Passo 2: O Toque de Mágica (Via VS Code)</h2>
+<p>Agora vem a parte fácil. Abra seu <b>VS Code</b> e siga estes mini-passos:</p>
+
+<ol>
+    <li>Vá na aba de <b>Extensões</b> (o ícone de quadradinhos na lateral esquerda).</li>
+    <li>Pesquise por <b>Flutter</b> e clique em <b>Install</b>. Isso também instalará o suporte à linguagem Dart
+        automaticamente.</li>
+    <li>Pressione as teclas <code>Ctrl + Shift + P</code> (ou <code>Cmd + Shift + P</code> no Mac) para abrir a Paleta
+        de Comandos.</li>
+    <li>Digite <b>Flutter: New Project</b> e aperte Enter.</li>
+    <li>O VS Code dirá que não encontrou o SDK do Flutter. Clique no botão <b>Download SDK</b> que aparecerá.</li>
+    <li>Escolha uma pasta no seu computador para salvar o Flutter (Dica: evite pastas de sistema como 'Arquivos de
+        Programas'. Crie uma pasta como <code>C:\dev</code>).</li>
+</ol>
+
+<div class="callout tip">
+    <div class="callout-title">💡 Dica de Ouro</div>
+    Aguarde o download terminar. O VS Code fará todo o trabalho pesado de configurar os caminhos (PATH) para você. Se
+    ele pedir para "Add SDK to PATH", clique em <b>Sim</b>!
+</div>
+
+<hr style="margin: 40px 0;">
+
+<h2>Passo 3: Verificando a Saúde (Flutter Doctor)</h2>
+<p>Para ter certeza de que tudo está perfeito, abra o terminal do VS Code (Terminal > New Terminal) e digite:</p>
+
+<pre><code class="language-bash">flutter doctor</code></pre>
+
+<p>O Flutter vai analisar seu sistema e mostrar uma lista. O objetivo é ter o máximo de <b>[✓]</b> verdinhos possível.
+    Se houver algum <b>[✗]</b> em Android Studio ou Xcode agora, não se preocupe: você já pode começar a desenvolver
+    para a <b>Web</b>!</p>
+
+<hr style="margin: 40px 0;">
+
+<h2>Passo 4: Seu Primeiro Test-Drive</h2>
+<p>Quer ver a mágica acontecer agora? No seu projeto novo:</p>
+<ol>
+    <li>Na barra inferior do VS Code, clique onde diz "Windows" ou "No Device" e selecione <b>Chrome</b>.</li>
+    <li>Pressione a tecla <b>F5</b>.</li>
+    <li>Aguarde alguns segundos e... <b>VOILÀ!</b> Seu primeiro app Flutter está rodando no navegador.</li>
+</ol>
+
+<hr style="margin: 40px 0;">
+
+<div style="background: #fff7ed; border: 2px solid #f97316; padding: 30px; border-radius: 12px; margin-bottom: 40px;">
+    <h2 style="color: #9a3412; border: none; margin-top: 0;">🚀 Próximo Nível: Configurando o Android</h2>
+    <p>Rodar na Web é ótimo para começar, mas você quer ver seu app no <b>celular</b>, certo? Para isso, precisamos de
+        um pouco mais de "músculo".</p>
+
+    <h3>1. Instalando o Android Studio</h3>
+    <p>O Android Studio é o "motor" que permite criar apps para Android. <a href="https://developer.android.com/studio"
+            target="_blank">Baixe o Android Studio aqui</a>.</p>
+    <ul>
+        <li>Durante a instalação, escolha a opção <b>"Standard"</b>.</li>
+        <li>Ao terminar, abra o Android Studio e vá em <b>More Actions > SDK Manager</b>.</li>
+        <li>Na aba <b>SDK Tools</b>, certifique-se de marcar: <b>Android SDK Command-line Tools</b>.</li>
+    </ul>
+
+    <h3>2. Aceitando as Licenças</h3>
+    <p>O Google precisa que você aceite os termos de uso. No terminal do VS Code, digite:</p>
+    <pre><code class="language-bash">flutter doctor --android-licenses</code></pre>
+    <p>Pressione <b>y</b> (de yes) para todas as perguntas que aparecerem.</p>
+
+    <h3>3. Criando um Emulador (Celular Virtual)</h3>
+    <p>Não tem um cabo USB por perto? Use um celular virtual!</p>
+    <ul>
+        <li>No Android Studio, vá em <b>More Actions > Virtual Device Manager</b>.</li>
+        <li>Clique em <b>Create Device</b>, escolha um modelo (ex: Pixel 7) e baixe uma versão do Android (ex: 'R' ou
+            'UpsideDownCake').</li>
+        <li>Pronto! Agora, no VS Code, ele aparecerá na lista de dispositivos na barra inferior.</li>
+    </ul>
+
+    <div class="callout warning">
+        <div class="callout-title">📱 Usando seu Próprio Celular</div>
+        Se preferir usar seu celular real: vá em <b>Configurações > Sobre o Telefone</b> e clique 7 vezes no "Número da
+        Versão" para ativar o <b>Modo Desenvolvedor</b>. Depois, procure por <b>Depuração USB</b> e ative-a. Conecte no
+        PC e o Flutter o reconhecerá na hora!
+    </div>
+</div>
+
+<div class="callout info">
+    <div class="callout-title">🎯 Desafio do Mentor</div>
+    Tente mudar o texto que aparece na tela do seu app novo (procure pela palavra "Flutter" no arquivo
+    <code>main.dart</code>) e salve o arquivo. Veja o que acontece no navegador quase instantaneamente! Isso se chama
+    <b>Hot Reload</b>.
+</div>
+
+<div class="callout tip">
+    <div class="callout-title">⏭️ O que vem por aí?</div>
+    Agora que seu ambiente está pronto, na Unidade 02 vamos entender cada linha de código desse app que você acabou de
+    rodar. Parabéns, você agora é oficialmente um desenvolvedor Flutter!
+</div>

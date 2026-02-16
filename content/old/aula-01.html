@@ -1,0 +1,106 @@
+<h1>Gestos e Botões</h1>
+
+<p>Um aplicativo não é apenas para ser visto, é para ser tocado. No Flutter, transformamos qualquer widget em um
+    elemento interativo usando detectores de gestos e botões pré-estilizados.</p>
+
+<div class="hero-section"
+    style="background: linear-gradient(135deg, #f43f5e 0%, #e11d48 100%); color: white; padding: 40px; border-radius: 12px; margin-bottom: 40px;">
+    <h2 style="color: white; border: none; margin-top: 0;">O Toque Humano</h2>
+    <p>Desde um simples clique até gestos complexos como "arrastar" e "pinçar", o Flutter oferece controle total sobre a
+        interação.</p>
+</div>
+
+<div class="hero-image"
+    style="margin-bottom: 30px; border-radius: 12px; overflow: hidden; height: 200px; position: relative;">
+    <img src="https://images.unsplash.com/photo-1512428559083-a4979b2b51ff?auto=format&fit=crop&q=80&w=1000"
+        alt="Smartphone Interaction" style="width: 100%; height: 100%; object-fit: cover;">
+    <div
+        style="position: absolute; bottom: 0; left: 0; right: 0; background: rgba(0,0,0,0.6); padding: 15px; color: white;">
+        <small>Interatividade: Criando conexões entre usuário e app</small>
+    </div>
+</div>
+
+<h2>1. Os Três Botões do Material Design</h2>
+<p>O Flutter fornece três tipos principais de botões que cobrem a maioria das necessidades de UI:</p>
+
+<div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin: 30px 0;">
+    <div style="background: #f1f5f9; padding: 15px; border-radius: 8px; text-align: center;">
+        <strong>ElevatedButton</strong>
+        <p style="font-size: 0.75rem; margin-top: 5px;">Botão com profundidade e sombra.</p>
+    </div>
+    <div style="background: #f1f5f9; padding: 15px; border-radius: 8px; text-align: center;">
+        <strong>OutlinedButton</strong>
+        <p style="font-size: 0.75rem; margin-top: 5px;">Botão com borda e fundo transparente.</p>
+    </div>
+    <div style="background: #f1f5f9; padding: 15px; border-radius: 8px; text-align: center;">
+        <strong>TextButton</strong>
+        <p style="font-size: 0.75rem; margin-top: 5px;">Apenas texto, ideal para ações secundárias.</p>
+    </div>
+</div>
+
+<pre><code class="language-dart">ElevatedButton(
+  onPressed: () => print("Clicou!"),
+  child: Text("Clique Aqui"),
+)</code></pre>
+
+<div class="callout warning">
+    <div class="callout-title">⚠️ onPressed: null</div>
+    Se você passar <code>null</code> para o parâmetro <code>onPressed</code>, o botão ficará cinza e desativado
+    automaticamente.
+</div>
+
+<h2>2. GestureDetector vs InkWell</h2>
+<p>E se você quiser transformar um <code>Container</code> ou uma <code>Image</code> em um botão? Você tem duas escolhas:
+</p>
+
+<ul>
+    <li><strong>GestureDetector:</strong> Detecta cliques, toques duplos, pressões longas e arrastes. É invisível (não
+        tem feedback visual).</li>
+    <li><strong>InkWell:</strong> Faz tudo o que o GestureDetector faz, mas adiciona o efeito "Splash" (onda de água)
+        típico do Material Design.</li>
+</ul>
+
+<div style="background: #eef2ff; border-left: 5px solid #6366f1; padding: 20px; border-radius: 4px; margin: 25px 0;">
+    <pre><code class="language-dart">InkWell(
+  onTap: () => print("Feedback visual!"),
+  borderRadius: BorderRadius.circular(10), // A onda respeita a borda
+  child: Container(
+    padding: EdgeInsets.all(20),
+    child: Text("Sou um botão customizado"),
+  ),
+)</code></pre>
+</div>
+
+<h2>3. Tipos de Gestos</h2>
+<p>O <code>GestureDetector</code> é extremamente poderoso. Confira os eventos mais comuns:</p>
+<ul>
+    <li><code>onTap</code>: Toque simples.</li>
+    <li><code>onDoubleTap</code>: Toque duplo.</li>
+    <li><code>onLongPress</code>: Segurar o dedo.</li>
+    <li><code>onPanUpdate</code>: Arrastar o dedo pela tela.</li>
+</ul>
+
+<hr style="margin: 40px 0;">
+
+<h2>🎯 Desafio Interativo</h2>
+<p>Como você criaria um componente que, ao ser <b>pressionado por 2 segundos</b>, exibe a mensagem "Ação Secreta" no
+    console, e que exibe uma <b>onda de feedback visual</b> ao ser clicado?</p>
+
+<details style="margin-top: 20px; cursor: pointer; background: #f3f4f6; padding: 15px; border-radius: 8px;">
+    <summary><strong>Ver Solução</strong></summary>
+    <div style="margin-top: 10px;">
+        <pre><code class="language-dart">InkWell(
+  onTap: () => print("Clicou normal"),
+  onLongPress: () => print("Ação Secreta"),
+  child: MyComponent(),
+)</code></pre>
+        <p>O <code>InkWell</code> é a escolha certa aqui porque fornece o feedback visual solicitado pelo desafio, além
+            de suportar tanto o <code>onTap</code> quanto o <code>onLongPress</code>.</p>
+    </div>
+</details>
+
+<div class="callout tip">
+    <div class="callout-title">💡 Material Design 3</div>
+    Nas versões mais recentes do Flutter, os botões ganharam novos estilos. Experimente usar o parâmetro
+    <code>style: ElevatedButton.styleFrom(...)</code> para customizar cores e tamanhos rapidamente!
+</div>
