@@ -94,6 +94,16 @@
                 "id": "u3-l6",
                 "title": "Scaffold: O Guia Definitivo",
                 "path": "content/desenvolvimento-mobile/Unidade 03/aula-06-flutter.md"
+            },
+            {
+                "id": "u3-l7",
+                "title": "Container: A Caixa Mágica do Flutter",
+                "path": "content/desenvolvimento-mobile/Unidade 03/aula-07-flutter.md"
+            },
+            {
+                "id": "u3-l8",
+                "title": "Row e Column: Organizando a Tela como um Pro",
+                "path": "content/desenvolvimento-mobile/Unidade 03/aula-08-flutter.md"
             }
         ]
     }
