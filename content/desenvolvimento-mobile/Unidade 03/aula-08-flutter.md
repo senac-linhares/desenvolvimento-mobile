@@ -6,7 +6,7 @@
 
 Já montou um quebra-cabeça? No Flutter, a tela é um quebra-cabeça — e o **Row** e o **Column** são as peças que organizam tudo na horizontal e na vertical. Sem eles, seus widgets ficariam todos empilhados sem ordem nenhuma!
 
-<div class="hero-section" style="background: linear-gradient(135deg, #134e4a 0%, #0d9488 100%);">
+<div class="hero-section" style="background: linear-gradient(135deg, #f0f0f0ff 0%, #2ee7d8ff 100%); padding: 20px; border-radius: 10px;">
     <h2>🎯 O que você vai aprender</h2>
     <p>Nesta aula vamos dominar o <strong>Row</strong> (linha horizontal) e o <strong>Column</strong> (coluna vertical) — os dois widgets de layout mais usados no Flutter. Você vai aprender a alinhar, distribuir e organizar widgets da forma que quiser.</p>
 </div>

@@ -104,6 +104,11 @@
                 "id": "u3-l8",
                 "title": "Row e Column: Organizando a Tela como um Pro",
                 "path": "content/desenvolvimento-mobile/Unidade 03/aula-08-flutter.md"
+            },
+            {
+                "id": "u3-l9",
+                "title": "Stack: Sobrepondo Widgets como Camadas",
+                "path": "content/desenvolvimento-mobile/Unidade 03/aula-09-flutter.md"
             }
         ]
     }
