@@ -9,7 +9,7 @@
 
 **3 - ABRA O POWERSHELL e digite o seguinte comando:**
 
-C:\Users\Aluno> ```where flutter```
+C:\Users\Aluno> ```where.exe flutter```
 resultado deve ser:
 ```
 C:\dev\flutter\bin\flutter
