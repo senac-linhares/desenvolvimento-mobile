@@ -11,6 +11,7 @@ Prepare-se para uma jornada incrível onde você vai aprender a criar aplicativo
 
 Este é o repositório oficial do curso **Técnico em Desenvolvimento de Sistemas** do **Senac Linhares**, focado em **Desenvolvimento Mobile com Flutter**.
 
+https://senac-linhares.github.io/desenvolvimento-mobile/
 ---
 
 ## 🤔 O que é Flutter?
