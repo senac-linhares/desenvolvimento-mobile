@@ -1,5 +1,8 @@
 ## CONFIGURANDO O FLUTTER
 
+### Acess: https://github.com/senac-linhares/desenvolvimento-mobile/
+
+
 **1 - ABRA AS VARIAVEIS DE AMBIENTE E REMOVA O PATH QUE ADICIONAMOS ONTEM.**
 
 **2 - REINICIE SEU COMPUTADOR**
